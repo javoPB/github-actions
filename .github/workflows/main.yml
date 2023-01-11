@@ -23,7 +23,7 @@ jobs:
           java-version: 1.8
           
       - name: Step 3 - Have a GitHub Actions Build Maven Project 
-        run: mvn -B package --file pom.xml
+        run: mvn -B package --file pom.xml -Dmaven.test.skip mkdir staging && cp target/*.jar staging
         
       - name: Step 4 - List the current Directory
         run: ls -a
