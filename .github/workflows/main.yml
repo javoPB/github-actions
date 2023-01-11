@@ -33,7 +33,7 @@ jobs:
           cd target
           ls -a
 
-      - name: Archive code coverage results
+      - name: Step 6 - Archive code coverage results
         uses: actions/upload-artifact@v2
         with:
           name: target
