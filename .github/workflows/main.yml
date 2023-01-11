@@ -47,8 +47,8 @@ jobs:
       - name: Step 7 - Login to Docker Hub
         run: docker login -u ${{ "javopbdocker" }} -p ${{ "Terron_58" }}
       - name: Build Container image
-        run: docker build -t ${{ https://hub.docker.com/repositories/javopbdocker }}:latest .
+        run: docker build -t ${{ "https://hub.docker.com/repositories/javopbdocker" }}:latest .
       - name: Publish Docker image
-        run: docker push ${{ https://hub.docker.com/repositories/javopbdocker }}
+        run: docker push ${{ "https://hub.docker.com/repositories/javopbdocker" }}
           
 
