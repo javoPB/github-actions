@@ -24,13 +24,7 @@ jobs:
           
       - name: Step 3 - Have a GitHub Actions Build Maven Project 
         # run: mvn -B package --file pom.xml
-      - run: mvn --batch-mode --update-snapshots verify
-      - run: mkdir staging && cp target/*.jar staging
-      - uses: actions/upload-artifact@v3
-        with:
-          name: Package
-          path: staging
-      
+        run: mvn --batch-mode --update-snapshots verify
         
       - name: Step 4 - List the current Directory
         run: ls -a
