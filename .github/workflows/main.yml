@@ -23,7 +23,10 @@ jobs:
           java-version: 1.8
           
       - name: Step 3 - Have a GitHub Actions Build Maven Project 
-        run: mvn --batch-mode --update-snapshots package
+        run: mvn -B package --file pom.xml
+        # run: mvn --batch-mode --update-snapshots verify
+        # run: mvn install --file pom.xml
+        # run: mvn --batch-mode --update-snapshots package
         
       - name: Step 4 - List the current Directory
         run: ls -a
