@@ -24,7 +24,8 @@ jobs:
           
       - name: Step 3 - Have a GitHub Actions Build Maven Project 
         # run: mvn -B package --file pom.xml
-        run: mvn --batch-mode --update-snapshots verify
+        # run: mvn --batch-mode --update-snapshots verify
+        run: mvn install --file pom.xml
         
       - name: Step 4 - List the current Directory
         run: ls -a
