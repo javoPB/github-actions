@@ -32,3 +32,9 @@ jobs:
         run: |
           cd target
           ls -a
+
+      - name: Archive code coverage results
+        uses: actions/upload-artifact@v2
+        with:
+          name: target
+          path: target
