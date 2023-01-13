@@ -50,7 +50,7 @@ jobs:
           # Artifact name
           name: target
           # Destination path
-          path: ./
+          path: ./target
     
 
           
