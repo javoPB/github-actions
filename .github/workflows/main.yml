@@ -52,11 +52,37 @@ jobs:
           # Destination path
           path: ./target
     
-      - name: Step 7 - Login to Docker Hub
-        run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-      - name: Build Container image
-        run: docker image build -t ${{ secrets.DOCKER_REPO }}:latest .
-      - name: Publish Docker image
-        run: docker push ${{ secrets.DOCKER_REPO }}.latest
-          
+      #- name: Step 7 - Login to Docker Hub
+      #  run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+      #- name: Build Container image
+      #  run: docker image build -t ${{ secrets.DOCKER_REPO }}:latest .
+      #- name: Publish Docker image
+      #  run: docker push ${{ secrets.DOCKER_REPO }}.latest
+       
+      - 
+        name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+      -
+        name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      -
+        name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+      -
+        name: Build and push
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          push: true
+          tags: user/app:latest
+      -
+        name: Update repo description
+        uses: peter-evans/dockerhub-description@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          repository: user/app
 
