@@ -55,7 +55,7 @@ jobs:
       - name: Step 7 - Login to Docker Hub
         run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
       - name: Build Container image
-        run: docker build -t ${{ secrets.DOCKER_REPO }}:latest .
+        run: docker image build -t ${{ secrets.DOCKER_REPO }}:latest .
       - name: Publish Docker image
         run: docker push ${{ secrets.DOCKER_REPO }}.latest
           
