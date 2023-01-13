@@ -44,13 +44,13 @@ jobs:
           name: target
           path: target
         
-      - name: Step 6 - Download a Build Artifact
+      - name: Step 7 - Download a Build Artifact
         uses: actions/download-artifact@v3.0.2
         with:
           # Artifact name
-          name: # optional
+          name: target
           # Destination path
-          path: # optional
+          path: ./
     
 
           
