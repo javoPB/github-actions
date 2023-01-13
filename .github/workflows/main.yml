@@ -80,7 +80,7 @@ jobs:
           tags: ${{ secrets.DOCKER_REPO }}/javotest:latest
       -
         name: Update repo description
-        uses: javotest/dockerhub-description@v3
+        uses: ${{ secrets.DOCKER_REPO }}/javotest/dockerhub-description@v3
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
