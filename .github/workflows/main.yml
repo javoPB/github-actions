@@ -43,12 +43,15 @@ jobs:
         with:
           name: target
           path: target
-              
-      - name: Step 7 - Login to Docker Hub
-        run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-      - name: Build Container image
-        run: docker build -t ${{ secrets.DOCKER_REPO }}:1.0 .
-      - name: Publish Docker image
-        run: docker push ${{ secrets.DOCKER_REPO }}
+        
+      - name: Step 6 - Download a Build Artifact
+        uses: actions/download-artifact@v3.0.2
+        with:
+          # Artifact name
+          name: # optional
+          # Destination path
+          path: # optional
+    
+
           
 
