@@ -1,24 +1,8 @@
-#
-# OpenJDK Java 8 JRE Dockerfile
-#
-# https://github.com/dockerfile/java
-# https://github.com/dockerfile/java/tree/master/openjdk-7-jre
-#
+# Container image that runs your code
+FROM alpine:3.10
 
-# Pull base image.
-FROM dockerfile/ubuntu
+# Copies your code file from your action repository to the filesystem path `/` of the container
+COPY target /target
 
-# Install Java.
-RUN \
-  apt-get update && \
-  apt-get install -y openjdk-8-jre && \
-  rm -rf /var/lib/apt/lists/*
-
-# Define working directory.
-WORKDIR /target
-
-# Define commonly used JAVA_HOME variable
-ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
-
-# Define default command.
-CMD ["bash"]
+# Code file to execute when the docker container starts up (`entrypoint.sh`)
+# ENTRYPOINT ["/entrypoint.sh"]
