@@ -52,6 +52,11 @@ jobs:
           # Destination path
           path: ./target
     
-
+      - name: Step 7 - Login to Docker Hub
+        run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+      - name: Build Container image
+        run: docker build -t ${{ secrets.DOCKER_REPO }}:1.0 .
+      - name: Publish Docker image
+        run: docker push ${{ secrets.DOCKER_REPO }}
           
 
